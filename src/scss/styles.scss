@@ -1,4 +1,11 @@
-@import "variables"; /* /src/scss/_variables.scss */
+@import "variables";
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+
+.indexBody {
+  background-color: rgb(123, 224, 224);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;}

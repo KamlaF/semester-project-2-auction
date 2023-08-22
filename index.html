@@ -10,15 +10,31 @@
 
 </head>
 
-<body>
+<body class="indexBody">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">MySite</a>
+        
+        <!-- When user is logged out -->
+        <div id="loggedOut" class="navbar-nav">
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/register">Register</a>
+        </div>
+        
+        <!-- When user is logged in -->
+        <div id="loggedIn" class="navbar-nav" style="display: none;">
+            <span class="navbar-text mr-3">Welcome, <span id="userName">John</span>!</span>
+            <a class="nav-link" href="/profile">Profile</a>
+            <a class="nav-link" href="/listings">Listings</a>
+            <a class="nav-link" href="/logout">Logout</a>
+        </div>
+    </div>
+</nav>
 
-  <div class="container">
-  <div class="row">
-    <div class="col-md-4">Column 1</div>
-    <div class="col-md-4">Column 2</div>
-    <div class="col-md-4">Column 3</div>
-  </div>
-</div>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="/js/index.js" type="module"></script>
 </body>
 
 </html>
