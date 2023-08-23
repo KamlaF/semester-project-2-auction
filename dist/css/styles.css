@@ -11850,11 +11850,5 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.indexBody {
-  background-color: rgb(123, 224, 224);
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
 
 /*# sourceMappingURL=styles.css.map */
