@@ -1,7 +1,14 @@
 // src/js/api/headers.mjs
 export function headers(contentType) {
-  return {
+  const defaultHeaders = {
     "Content-Type": contentType,
-    // You can add other headers here in the future if needed.
   };
+
+  // Check for a token in localStorage
+  const token = localStorage.getItem("token");
+  if (token) {
+    defaultHeaders["Authorization"] = `Bearer ${token}`;
+  }
+
+  return defaultHeaders;
 }

@@ -42,21 +42,21 @@
                         <div class="mb-3">
                             <label for="usernameInput" class="form-label">Username</label>
                             <!-- Add pattern to restrict unwanted characters -->
-                            <input type="text" class="form-control" id="usernameInput" required pattern="^[A-Za-z0-9_]+$" title="Only alphabets, numbers, and underscores are allowed.">
+                            <input type="text" name ="name" class="form-control" id="usernameInput" required pattern="^[A-Za-z0-9_]+$" title="Only alphabets, numbers, and underscores are allowed.">
                         </div>
                         <div class="mb-3">
                             <label for="emailInput" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="emailInput" required aria-describedby="emailHelp" pattern="^[\w\-.]+@(stud.)?noroff.no$" title="The email value must be a valid stud.noroff.no email address.">
+                            <input type="email" name ="email" class="form-control" id="emailInput" required aria-describedby="emailHelp" pattern="^[\w\-.]+@(stud.)?noroff.no$" title="The email value must be a valid stud.noroff.no email address.">
                             <div class="form-text">Only stud.noroff.no email addresses are allowed.</div>
                         </div>
                         <div class="mb-3">
                             <label for="passwordInput" class="form-label">Password</label>
                             <!-- Add minlength to ensure password is at least 8 characters long -->
-                            <input type="password" class="form-control" id="passwordInput" required minlength="8" title="Password must be at least 8 characters long.">
+                            <input type="password" name="password" class="form-control" id="passwordInput" required minlength="8" title="Password must be at least 8 characters long.">
                             <div class="form-text">Password must be at least 8 characters long.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="avatarInput" class="form-label">Avatar URL</label>
+                            <label for="avatarInput" name="avatar" class="form-label">Avatar URL</label>
                             <input type="url" class="form-control" id="avatarInput" placeholder="https://example.com/avatar.jpg">
                         </div>
                         <button type="submit" class="btn btn-primary">Register</button>

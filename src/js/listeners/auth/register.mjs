@@ -3,12 +3,6 @@ import { register } from "../../api/auth/register.mjs";
 export async function registerListener(event) {
   event.preventDefault();
 
-  const form = event.target;
-  const data = new FormData(form);
-  
-
-
-  
   const name = document.getElementById("usernameInput").value;
   const email = document.getElementById("emailInput").value;
   const password = document.getElementById("passwordInput").value;
@@ -19,31 +13,31 @@ export async function registerListener(event) {
     email,
     password,
   };
+
   if (avatar) {
     profile.avatar = avatar;
   }
 
-  
-  console.log("Name:", name);
- console.log(typeof email);
-
-  console.log("Password:", password);
-  console.log("Avatar:", avatar);
+  // Logging for debugging
+  console.log("Profile data:", profile);
 
   try {
-    const response = await register(name, email, password, avatar);
+    const response = await register(profile); // Call the register function with the profile object.
 
-    console.log(response); // Adjust this as needed.
+    console.log("Registration response:", response); // Adjust this as needed.
 
-    // Check if response contains a token (based on API documentation, the key should be 'accessToken')
+    // Check if response contains a token
     if (response.accessToken) {
       localStorage.setItem("token", response.accessToken);
+      // Handle success - inform the user, navigate, etc.
+      alert("Registration successful! You can now login.");
+    } else {
+      // Handle scenarios where registration succeeds but no token is provided
+      alert("Registration successful, but no access token received.");
     }
-
-    // Handle success - inform the user, navigate, etc.
   } catch (error) {
     console.error("There was an error registering:", error);
-    alert("There was a problem creating your account");
+    alert("There was a problem creating your account.");
   }
 }
 
