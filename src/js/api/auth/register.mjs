@@ -11,15 +11,26 @@ import { headers } from "/src/js/api/headers.mjs";
  * @returns {Promise<Object>} - The response JSON object.
  */
 export async function register(profile) {
-  // Logging data
-  console.log("Name value:", profile.name, "Type:", typeof profile.name);
-  console.log("Email value:", profile.email, "Type:", typeof profile.email);
-  console.log(
-    "Password value:",
-    profile.password,
-    "Type:",
-    typeof profile.password
-  );
+  // Validation
+  if (
+    typeof profile.name !== "string" ||
+    !/^[\w]+$/.test(profile.name) ||
+    profile.name.length > 20
+  ) {
+    throw new Error("Invalid name format.");
+  }
+
+  if (
+    typeof profile.email !== "string" ||
+    !/^[\w\-.]+@(stud\.)?noroff\.no$/.test(profile.email)
+  ) {
+    throw new Error("Invalid email format.");
+  }
+
+  if (typeof profile.password !== "string" || profile.password.length < 8) {
+    throw new Error("Password too short.");
+  }
+
   if (profile.avatar) {
     console.log(
       "Avatar value:",
@@ -31,13 +42,12 @@ export async function register(profile) {
     console.log("Avatar is not provided");
   }
 
-  // Structuring data for the request
-  
   const data = {
     name: profile.name,
     email: profile.email,
     password: profile.password,
   };
+
   if (profile.avatar) {
     data.avatar = profile.avatar;
   }
