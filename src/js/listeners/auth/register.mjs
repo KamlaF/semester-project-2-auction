@@ -1,4 +1,12 @@
+import displayMessage from "../../ui/common/displayMessage.js";
 import { register } from "../../api/auth/register.mjs";
+
+export function addRegisterListener() {
+  const form = document.querySelector("form#register");
+  if (form) {
+    form.addEventListener("submit", registerListener);
+  }
+}
 
 export async function registerListener(event) {
   event.preventDefault();
@@ -14,7 +22,7 @@ export async function registerListener(event) {
     password,
   };
 
-  if (avatar) {
+  if (avatar.trim().length > 0) {
     profile.avatar = avatar;
   }
 
@@ -29,19 +37,10 @@ export async function registerListener(event) {
     // Check if response contains a token
     if (response.accessToken) {
       localStorage.setItem("token", response.accessToken);
-      // Handle success - inform the user, navigate, etc.
-      alert("Registration successful! You can now login.");
-    } else {
-      // Handle scenarios where registration succeeds but no token is provided
-      alert("Registration successful, but no access token received.");
     }
+    displayMessage("success", "Registration successful!", "#message");
   } catch (error) {
     console.error("There was an error registering:", error);
-    alert("There was a problem creating your account.");
+    displayMessage("danger", error, "#message");
   }
 }
-
-// Bind the listener to the form submission
-document
-  .querySelector(".card-body form")
-  .addEventListener("submit", registerListener);

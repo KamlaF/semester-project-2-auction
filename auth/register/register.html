@@ -7,29 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Title</title>
    <link rel="stylesheet" href="/dist/css/styles.css">
-<script type="module" src="/src/js/main.mjs"></script>
+<script type="module" src="/src/js/index.js"></script>
 </head>
 
 <body class="indexBody">
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">MySite</a>
-        
-        <!-- When user is logged out -->
-        <div id="loggedOut" class="navbar-nav">
-            <a class="nav-link" href="/login">Login</a>
-            <a class="nav-link" href="/register">Register</a>
-        </div>
-        
-        <!-- When user is logged in -->
-        <div id="loggedIn" class="navbar-nav" style="display: none;">
-            <span class="navbar-text mr-3">Welcome, <span id="userName">John</span>!</span>
-            <a class="nav-link" href="/profile">Profile</a>
-            <a class="nav-link" href="/listings">Listings</a>
-            <a class="nav-link" href="/logout">Logout</a>
-        </div>
-    </div>
-</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/">AUCTION.HOUSE</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav" id="menu"></ul>
+				</div>
+			</div>
+		</nav>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -38,7 +38,9 @@
                     Register
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form id="register">
+                        <div id="message"></div>
+                        <fieldset>
                         <div class="mb-3">
                             <label for="usernameInput" class="form-label">Username</label>
                             <!-- Add pattern to restrict unwanted characters -->
@@ -60,6 +62,7 @@
                             <input type="url" class="form-control" id="avatarInput" placeholder="https://example.com/avatar.jpg">
                         </div>
                         <button type="submit" class="btn btn-primary">Register</button>
+                        </fieldset>
                     </form>
                 </div>
             </div>
