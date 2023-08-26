@@ -14,14 +14,17 @@ function loginListener(event) {
 
   login(email, password)
     .then((profile) => {
-      // Do something with the profile, e.g., redirecting the user or updating UI
       displayMessage("success", "Login successful!", "#message");
-      // Optionally, you can redirect the user to a dashboard or profile page, for example:
-      // window.location.href = '/dashboard.html';
+
+      // Redirect to the profile page after a short delay
+      setTimeout(() => {
+        window.location.href = "/profile/index.html";
+      }, 1000);
     })
     .catch((error) => {
       console.error("Login error:", error);
       displayMessage("danger", error.message || "Login failed!", "#message");
     });
 }
+
 

@@ -1,5 +1,7 @@
 import * as storage from "../../services/storage.mjs";
 
 export function isLoggedIn() {
-  return storage.get("token") ? true : false;
+  const token = storage.get("token");
+  console.log("Token from storage:", token);
+  return token ? true : false;
 }
