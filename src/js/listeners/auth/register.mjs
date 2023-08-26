@@ -38,9 +38,20 @@ export async function registerListener(event) {
     if (response.accessToken) {
       localStorage.setItem("token", response.accessToken);
     }
-    displayMessage("success", "Registration successful!", "#message");
+
+    displayMessage(
+      "success",
+      "Registration successful! Redirecting to login...",
+      "#message"
+    );
+
+    // Redirect to the login page after a slight delay, giving the user a chance to see the success message.
+    setTimeout(() => {
+      window.location.href = "/auth/login/index.html";
+    }, 2000); // 2000 milliseconds (2 seconds) delay
   } catch (error) {
     console.error("There was an error registering:", error);
     displayMessage("danger", error, "#message");
   }
 }
+
