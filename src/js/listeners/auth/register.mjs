@@ -32,26 +32,15 @@ export async function registerListener(event) {
   try {
     const response = await register(profile); // Call the register function with the profile object.
 
-    console.log("Registration response:", response); // Adjust this as needed.
-
-    // Check if response contains a token
-    if (response.accessToken) {
-      localStorage.setItem("token", response.accessToken);
-    }
+    console.log("Registration response:", response);
 
     displayMessage(
       "success",
-      "Registration successful! Redirecting to login...",
+      "Registration successful! <a href='/auth/login/index.html'>Click here to login.</a>",
       "#message"
     );
-
-    // Redirect to the login page after a slight delay, giving the user a chance to see the success message.
-    setTimeout(() => {
-      window.location.href = "/auth/login/index.html";
-    }, 2000); // 2000 milliseconds (2 seconds) delay
   } catch (error) {
     console.error("There was an error registering:", error);
     displayMessage("danger", error, "#message");
   }
 }
-

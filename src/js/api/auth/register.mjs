@@ -1,4 +1,4 @@
-import { API_REGISTER } from "/src/js/api/constants/api.mjs";
+import { API_REGISTER } from "/src/js/constants/api.mjs";
 import { headers } from "/src/js/api/headers.mjs";
 
 /**

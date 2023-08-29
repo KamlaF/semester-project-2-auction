@@ -1,6 +1,5 @@
-import { API_LOGIN } from "/src/js/api/constants/api.mjs";
+import { API_LOGIN } from "../../constants/api.mjs";
 import { headers } from "/src/js/api/headers.mjs";
-import { save } from "../../services/storage.mjs";
 
 export async function login(email, password) {
   const response = await fetch(API_LOGIN, {
@@ -11,11 +10,12 @@ export async function login(email, password) {
 
   if (response.ok) {
     const profile = await response.json();
-    save("token", profile.accessToken);
-    delete profile.accessToken;
-    save("profile", profile);
+    if (!profile.accessToken) {
+      throw new Error("Token is missing in the response");
+    }
     return profile;
   }
 
   throw new Error(response.statusText);
 }
+

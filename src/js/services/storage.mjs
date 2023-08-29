@@ -3,7 +3,11 @@ export function save(key, value) {
 }
 
 export function get(key) {
-  return JSON.parse(localStorage.getItem(key));
+  const item = localStorage.getItem(key);
+  if (item && item !== "undefined") {
+    return JSON.parse(item);
+  }
+  return null;
 }
 
 export function remove(key) {
