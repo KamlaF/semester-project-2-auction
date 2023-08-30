@@ -32,13 +32,13 @@ export async function registerListener(event) {
   try {
     const response = await register(profile); // Call the register function with the profile object.
 
-    console.log("Registration response:", response); // Adjust this as needed.
+    console.log("Registration response:", response);
 
-    // Check if response contains a token
-    if (response.accessToken) {
-      localStorage.setItem("token", response.accessToken);
-    }
-    displayMessage("success", "Registration successful!", "#message");
+    displayMessage(
+      "success",
+      "Registration successful! <a href='/auth/login/index.html'>Click here to login.</a>",
+      "#message"
+    );
   } catch (error) {
     console.error("There was an error registering:", error);
     displayMessage("danger", error, "#message");
