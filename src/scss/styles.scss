@@ -4,3 +4,20 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 
+.listing-item {
+  .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    .card-img-top {
+      max-height: 200px;
+      object-fit: cover;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  }
+}
+
