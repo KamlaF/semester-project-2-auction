@@ -7,15 +7,8 @@ export default function buildMenu(pathname) {
 
   // Clear current content first
   menu.innerHTML = "";
-  searchContainer.innerHTML = "";
+  
 
-  // Common search bar
-  const searchBar = `
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" list="searchResults" />
-            <div id="searchResults" class="search-results"></div>
-        </form>
-    `;
 
   if (isLoggedIn()) {
     const name = getName();
@@ -36,7 +29,7 @@ export default function buildMenu(pathname) {
             </li>
         `;
 
-    searchContainer.innerHTML = searchBar;
+    
     listeners.logoutListener();
   } else {
     menu.innerHTML = `
@@ -57,6 +50,6 @@ export default function buildMenu(pathname) {
             </li>
         `;
 
-    searchContainer.innerHTML = searchBar;
+   
   }
 }
