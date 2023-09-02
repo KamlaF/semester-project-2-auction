@@ -3,13 +3,16 @@ import { login } from "../../api/auth/login.mjs";
 import { save } from "../../services/storage.mjs";
 
 export function addLoginListener() {
+  console.log("Adding login listener");
+
   const loginForm = document.querySelector("form#logInForm");
-  loginForm.addEventListener("submit", loginListener);
+  loginForm.addEventListener("submit", loginListener, true);
 }
 
 import buildMenu from "../../ui/common/buildMenu.mjs";
 
 async function loginListener(event) {
+  console.log("Login form submitted");
   event.preventDefault();
 
   const email = document.querySelector("#emailInput").value;
@@ -34,4 +37,6 @@ async function loginListener(event) {
     console.error("Login error:", error);
     displayMessage("danger", error.message || "Login failed!", "#message");
   }
+  console.log("About to attempt login with", email, password);
+
 }
