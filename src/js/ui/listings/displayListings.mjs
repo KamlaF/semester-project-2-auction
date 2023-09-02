@@ -9,7 +9,7 @@ export function renderListings(listings) {
       <img class="card-img-top" src="${listing.media[0]}" alt="${listing.title}" />
       <div class="card-body">
         <h3 class="card-title">${listing.title}</h3>
-        <a href="/auth/login/index.html" class="text-primary">Log in to view bids</a>
+       
       </div>
       </div>
     </div>

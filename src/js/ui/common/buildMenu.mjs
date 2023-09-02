@@ -40,8 +40,8 @@ export default function buildMenu(pathname) {
             </li>
             <li class="nav-item">
                 <a class="nav-link ${
-                  pathname === "/auth/login/index.html" ? "active" : ""
-                }" href="/auth/login/index.html">Login</a>
+                  pathname === "/auth/login/" ? "active" : ""
+                }" href="/auth/login/">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link ${
