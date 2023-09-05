@@ -5,10 +5,11 @@ import { redirectBasedOnLogin } from "./helpers/auth/index.mjs";
 import { displayRecentListings } from "./listeners/listings/displayListings.mjs";
 import handleSearch from "./listeners/search/handleSearch.mjs";
 import hideResultContainerOnClick from "./listeners/search/hideResultContainerOnClick.mjs";
+import { displayUserCreditsListener } from "./listeners/profile/profile.mjs";
+import { setupAvatarUpdateListener } from "./listeners/profile/updateAvatar.mjs";
+import { isLoggedIn } from "./helpers/storage/index.mjs";
 
 export default function router() {
-  
-
   const pathname = window.location.pathname;
 
   redirectBasedOnLogin(pathname);
@@ -17,7 +18,6 @@ export default function router() {
   switch (pathname) {
     case "/":
     case "/index.html":
-      // As an example, only run the search handlers on the main page (or other relevant pages)
       handleSearch();
       hideResultContainerOnClick();
       displayRecentListings();
@@ -30,6 +30,14 @@ export default function router() {
     case "/auth/login/index.html":
       addLoginListener();
       break;
+    case "/profile":
+    case "/profile/index.html":
+      if (isLoggedIn()) {
+        displayUserCreditsListener();
+        setupAvatarUpdateListener(); // Invoke the updateAvatar listener
+      } else {
+        // e.g., window.location.href = "/auth/login/index.html";
+      }
+      break;
   }
-  console.log("Routing to:", pathname);
 }

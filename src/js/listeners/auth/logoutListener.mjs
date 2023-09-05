@@ -7,7 +7,6 @@ logoutButton.addEventListener("click", (event) => {
   event.preventDefault();
   storage.remove("token");
   storage.remove("name");
-  storage.remove("profile");
   location.href = "/";
 });
 }

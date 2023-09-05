@@ -1,5 +1,6 @@
 import { API_LISTINGS } from "../../constants/api.mjs";
-import { headers } from "../headers.mjs"; // Corrected the path based on the provided structure
+import { headers } from "../headers.mjs";
+
 
 export async function fetchListings() {
   try {
