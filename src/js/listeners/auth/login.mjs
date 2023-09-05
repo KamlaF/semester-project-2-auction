@@ -37,6 +37,6 @@ async function loginListener(event) {
     console.error("Login error:", error);
     displayMessage("danger", error.message || "Login failed!", "#message");
   }
-  console.log("About to attempt login with", email, password);
+  
 
 }
