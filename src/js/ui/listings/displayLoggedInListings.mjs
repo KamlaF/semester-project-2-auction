@@ -3,11 +3,16 @@ export function renderLoggedInListings(listings) {
 
   let html = "";
   listings.forEach((listing) => {
+    let imageUrl = listing.media[0];
+    if (imageUrl === undefined || imageUrl === "undefined" || imageUrl === "") {
+      imageUrl = "/Images/FB_IMG_1592496406529.jpg";
+    }
+
     html += `
      
   <div class="listing-item col-12 col-sm-6 col-md-4 col-lg-3 mb-4 p-2">
     <div class="card h-100">
-      <img class="card-img-top" src="${listing.media[0]}" alt="${listing.title}" />
+      <img class="card-img-top" src="${imageUrl}" alt="${listing.title}" />
       <div class="card-body">
         <h3 class="card-title">${listing.title}</h3>
         <p class="card-text">${listing.description}</p>
@@ -23,8 +28,6 @@ export function renderLoggedInListings(listings) {
 
     `;
   });
-
- 
 
   listingsContainer.innerHTML = html;
 }

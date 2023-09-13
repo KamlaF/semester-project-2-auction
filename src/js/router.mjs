@@ -7,6 +7,7 @@ import handleSearch from "./listeners/search/handleSearch.mjs";
 import hideResultContainerOnClick from "./listeners/search/hideResultContainerOnClick.mjs";
 import { displayUserCreditsListener } from "./listeners/profile/profile.mjs";
 import { setupAvatarUpdateListener } from "./listeners/profile/updateAvatar.mjs";
+import { addCreateListingListener } from "./listeners/listings/createListing.mjs"; 
 import { isLoggedIn } from "./helpers/storage/index.mjs";
 
 export default function router() {
@@ -34,7 +35,8 @@ export default function router() {
     case "/profile/index.html":
       if (isLoggedIn()) {
         displayUserCreditsListener();
-        setupAvatarUpdateListener(); // Invoke the updateAvatar listener
+        setupAvatarUpdateListener();
+        addCreateListingListener(); // Invoke the create listing listener here
       } else {
         // e.g., window.location.href = "/auth/login/index.html";
       }
