@@ -1,0 +1,18 @@
+.hero-section {
+  position: relative;
+  background: url('/Images/homeImage.jpeg') no-repeat center center;
+  background-size: cover;
+  background-position: bottom; 
+  height: 85vh;
+  color: #fff;
+}
+
+
+    .hero-section h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: $dark;
+    }
