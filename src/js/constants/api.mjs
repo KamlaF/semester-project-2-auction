@@ -13,4 +13,7 @@ export const API_CREDITS_BY_PROFILE = name => `${API_AUCTION_URL}/profiles/${nam
 
 // auction-listings related
 export const API_LISTINGS = `${API_AUCTION_URL}/listings`;
+// in constants/api.mjs
+export const API_SINGLE_LISTING = id => `${API_AUCTION_URL}/listings/${id}`;
+
 export const API_ADD_BID_TO_LISTING = id => `${API_AUCTION_URL}/listings/${id}/bids`;
