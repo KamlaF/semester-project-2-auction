@@ -1,4 +1,5 @@
 import { placeBid } from "../../api/bids/placeBid.mjs";
+import displayMessage from "../../ui/common/displayMessage.js"; // Importing displayMessage function
 
 export function addPlaceBidListener() {
   const bidForm = document.querySelector("#bidForm");
@@ -7,15 +8,19 @@ export function addPlaceBidListener() {
     event.preventDefault();
 
     const amount = parseFloat(event.target.elements.amount.value);
-    const listingId = getListingIdFromURL(); // Assuming you've imported this function or it's available in the scope
+    const listingId = getListingIdFromURL();
 
     try {
       const response = await placeBid(listingId, amount);
       console.log("Bid placed successfully:", response);
-      // Add any additional logic or display messages here
+      displayMessage("success", "Bid placed successfully!", "#message"); // Display success message
     } catch (error) {
       console.error("Failed to place bid:", error);
-      // Handle error, maybe show a message to the user.
+      displayMessage(
+        "danger",
+        error.message || "Failed to place bid!",
+        "#message"
+      ); // Display error message
     }
   });
 }
