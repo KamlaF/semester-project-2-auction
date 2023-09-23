@@ -19,11 +19,13 @@ export default function router() {
   redirectBasedOnLogin(pathname);
   buildMenu(pathname);
 
+  
+  handleSearch();
+  hideResultContainerOnClick();
+
   switch (pathname) {
     case "/":
     case "/index.html":
-      handleSearch();
-      hideResultContainerOnClick();
       displayRecentListings();
       break;
     case "/auth/register/index.html":
@@ -48,11 +50,6 @@ export default function router() {
     case "/Listings/singleListing.html":
       displaySingleListing(); // To fetch and display the single listing
       addPlaceBidListener(); // To add the bid event listener
-      break;
-
-    case "/Listings/singleListing.html":
-      // Here, you'll extract the ID and then fetch and display the listing
-      displaySingleListing();
       break;
     default:
       console.log(`No specific behavior defined for pathname: ${pathname}`);

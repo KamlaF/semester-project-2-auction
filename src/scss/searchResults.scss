@@ -1,0 +1,24 @@
+
+#search {
+  position: relative;
+  display: inline-block; 
+}
+
+#searchResults {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  z-index: 1;
+}
+#searchResults a {
+  display: block;
+  padding: 8px 12px; 
+  text-decoration: none; 
+  color: black;
+  
+  &:hover { /* This adds a hover effect to the links */
+    background-color: #e0e0e0;
+  }
+}
