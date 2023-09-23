@@ -21,7 +21,8 @@ export function renderLoggedInListings(listings) {
         <li class="list-group-item"><strong>Bids:</strong> ${listing._count.bids}</li>
       </ul>
       <div class="card-footer bg-transparent border-top-0">
-        <a href="Listings/singleListing.html?id=${listing.id}" class="text-primary stretched-link">View Listing</a>
+       <a href="Listings/singleListing.html?id=${listing.id}" class="text-primary stretched-link">View Listing</a>
+
       </div>
     </div>
   </div>
