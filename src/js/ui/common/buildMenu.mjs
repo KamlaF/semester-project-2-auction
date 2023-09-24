@@ -25,7 +25,7 @@ export default function buildMenu(pathname) {
                 }" href="/profile/index.html">Profile</a>
             </li>
             <li class="nav-item">
-                <button class="btn btn-primary" id="logout">Log out ${name}</button>
+                <button class="btn btn-light" id="logout">Log out ${name}</button>
             </li>
         `;
 

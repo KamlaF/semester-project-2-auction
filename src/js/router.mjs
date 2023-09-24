@@ -5,7 +5,6 @@ import { addLoginListener } from "./listeners/auth/login.mjs";
 import { displayRecentListings } from "./listeners/listings/displayListings.mjs";
 import { displaySingleListing } from "./listeners/listings/displaySingleListingListener.mjs";
 import { addPlaceBidListener } from "./listeners/bids/placeBidListener.mjs"; // adjust the path as necessary
-
 import handleSearch from "./listeners/search/handleSearch.mjs";
 import hideResultContainerOnClick from "./listeners/search/hideResultContainerOnClick.mjs";
 import { displayUserCreditsListener } from "./listeners/profile/profile.mjs";
