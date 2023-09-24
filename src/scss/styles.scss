@@ -26,3 +26,28 @@
     }
   }
 }
+
+// Assuming you have defined $light somewhere in your SCSS
+
+.profileH2 {
+  color: $light;
+  text-align: center;
+  
+  
+  font-size: 2rem;
+  
+  @media (max-width: 992px) {
+    font-size: 1.2rem; 
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+}
+
+
+.parentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+}

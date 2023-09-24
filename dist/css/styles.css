@@ -11910,4 +11910,25 @@ textarea.form-control-lg {
   background-color: #E6E2DD;
 }
 
+.profileH2 {
+  color: #E6E2DD;
+  text-align: center;
+  font-size: 2rem;
+}
+@media (max-width: 992px) {
+  .profileH2 {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 768px) {
+  .profileH2 {
+    font-size: 1rem;
+  }
+}
+.profileH2 .parentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*# sourceMappingURL=styles.css.map */
